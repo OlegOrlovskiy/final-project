@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Film Gallery</title>
+  </head>
+  <body>
+    <div class="page-container">
+      <h1 class="visually-hidden">Film Gallery app</h1>
+
+      <header class="page-header">
+        <a href="/index.html" class="main-page-link">
+          <img src="./img/home.svg" alt="Home, link to main page">
+        </a>
+        <a href="/signin.html" class="sign-in-link">Sign In / Sign Out</a>
+      </header>
+
+      <select class="content__sort" name="film-sort" id="sort-film">
+        <option value="vote_rating_desc" selected>Рейтинг по убыв.</option>
+        <option value="vote_rating_asc">Рейтинг по возр.</option>
+        <option value="release_date_desc">Дата релиза по убыв.</option>
+        <option value="release_date_asc">Дата релиза по возр.</option>
+      </select>
+      <main class="content">
+        
+        <ul class="content__list">
+        </ul>
+     
+      </main>
+      <nav aria-label="pagination">
+        <ul class="pagination">
+            <li>
+              <a href="">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="visually-hidden">previous set of pages</span>
+              </a>
+            </li>
+            <li>
+              <a href="" >
+                <span class="visually-hidden">page </span>
+                1
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <span class="visually-hidden">page </span>
+                2
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <span class="visually-hidden">page </span>
+                3
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <span class="visually-hidden">page </span>
+                4
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <span class="visually-hidden">next set of pages</span>
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+    <script src="film_gallery.js"></script>
+  </body>
+</html>

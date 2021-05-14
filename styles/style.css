@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  background: #ffffff;
+  font-family: 'Arial', sans-serif;
+  font-weight: 400;
+}
+
+.page-container {
+  padding: 40px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sign-in-link {
+  display: inline-block;
+  padding: 10px 15px;
+  border: 2px solid black;
+  text-decoration: none;
+  color: black;
+}
+
+.main-page-link img {
+  height: 40px;
+  width: 40px;
+}
+
+.content {
+  padding: 20px 60px;
+}
+
+.content__list {
+  width: 100%;
+  padding: 20px 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+  list-style-type: none;  
+}
+
+.film-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.film__link {
+  text-decoration: none;
+  color: black;
+}
+
+.film__img {
+  max-width: 100%;
+}
+
+.film__short-info {
+  display: none;
+  position: relative;
+  top: 40%;
+  color: white;
+}
+
+.film-item:hover .film__short-info {
+  display: block;
+}
+
+.film__date,
+.film__rating {
+  position: relative;
+  display: block;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.film__date {
+  top: -20%;
+}
+
+.film__rating {
+  top: 20%;
+}
+
+.film__date span,
+.film__rating span {
+  color: yellow;
+  font-size: 1.1em;
+}
+
+
+
+
+
+
+
+
+nav {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #eee;
+  margin-top: 1em;
+  padding-top: .5em;
+}
+
+.pagination {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.pagination li {
+  margin: 0 1px;
+}
+
+.pagination a {
+  display: block;
+  padding: .5em 1em;
+  border: 1px solid #999;
+  border-radius: .2em;
+  text-decoration: none;
+}
+
+.pagination a[aria-current="page"] {
+  background-color: #333;
+  color: #fff;
+}
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  overflow: hidden;
+}
+
+
+
