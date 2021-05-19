@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Registration</title>
+  </head>
+  <body>
+    <div class="page-container">
+      <h1 class="visually-hidden">Registration</h1>
+
+      <header class="page-header">
+        <a href="/index.html" class="main-page-link">
+          <img src="./img/home.svg" alt="Home, link to main page">
+        </a>
+        <a href="/auth.html" class="sign-in-link">Sign In / Sign Out</a>
+      </header>
+      
+      <main class="content">
+        <div id="authFormWrapper" class="form__wrapper">
+          <h1 class="regTitle">Sign in</h1>
+          <form action="#" onsubmit="return Validate()" name="regForm">
+            <div class="row">              
+              <input id="emailSign" type="email" name="email" class="textInput" required>
+              <label for="emailSign">Email</label>
+              <div id="emailSignError" class="errors"></div>
+            </div>            
+            <div class="row">              
+              <input id="passwordSign" type="password" name="password" class="textInput" required>
+              <label for="passwordSign">Password</label>
+              <div id="passwordSignError" class="errors"></div>
+            </div>
+            <div class="btns-container">
+              <input type="submit" name="register" value="Sign" class="btn regBtn">
+              <a href="/registration.html" class="btn reg-link">Registration</a>
+            </div>
+          </form>
+          </div>    
+      </main>    
+    
+    </div>
+    <script src="./app/src/auth.js"></script>
+  </body>
+</html>
