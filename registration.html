@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Registration</title>
+  </head>
+  <body>
+    <div class="page-container">
+      <h1 class="visually-hidden">Registration</h1>
+
+      <header class="page-header">
+        <a href="/index.html" class="main-page-link">
+          <img src="./img/home.svg" alt="Home, link to main page">
+        </a>
+        <a href="/auth.html" class="sign-in-link">Sign In / Sign Out</a>
+      </header>
+      
+      <main class="content">
+        <div id="regFormWrapper" class="form__wrapper">
+          <h1 class="regTitle">Registration</h1>
+          <form method="POST" action="#" onsubmit="return Validate()" name="regForm">
+            <div class="row">              
+              <input id="userName" type="text" name="username" class="textInput" required>
+              <label for="userName">Name</label>
+              <div id="nameError" class="errors"></div>
+            </div>
+            <div class="row">              
+              <input id="userSurname" type="text" name="username" class="textInput" required>
+              <label for="userSurname">Surname</label>
+              <div id="surnameError" class="errors"></div>
+            </div>              
+            <div class="row">              
+              <input id="password" type="password" name="password" class="textInput" required>
+              <label for="password">Password</label>
+            </div>
+            <div class="row">                
+                <input id="passwordConfirm" type="password" name="passwordConfirm" class="textInput" required>
+                <label for="passwordConfirm">Confirm password</label>
+                <div id="passwordError" class="errors"></div>
+            </div>
+            <div class="row">              
+              <input id="email" type="email" name="email" class="textInput" required>
+              <label for="email">Email</label>
+              <div id="emailError" class="errors"></div>
+            </div>
+            <div class="btns-container">
+              <input type="submit" name="register" value="Register" class="btn regBtn">
+              <input type="reset" name="reset" value="Reset" class="btn resetBtn">
+            </div>
+          </form>
+          </div>    
+      </main>    
+    
+    </div>
+    <script src="./app/src/registration.js"></script>
+  </body>
+</html>

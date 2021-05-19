@@ -1,0 +1,16 @@
+[
+  {
+    "name": "administrator",
+    "surname": "administrator",
+    "password": "administrator",
+    "email": "smth@smth.com",
+    "type": "admin"
+  },
+  {
+    "name": "someuser",
+    "surname": "someuser",
+    "password": "123456789",
+    "email": "someuser@gmail.com",
+    "type": "user"
+  }
+]

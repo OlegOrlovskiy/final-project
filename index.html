@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Film Gallery</title>
+  </head>
+  <body>
+    <div class="page-container">
+      <h1 class="visually-hidden">Film Gallery app</h1>
+
+      <header class="page-header">
+        <a href="/index.html" class="main-page-link">
+          <img src="./img/home.svg" alt="Home, link to main page">
+        </a>
+        <a href="/auth.html" class="sign-in-link">Sign In / Sign Out</a>
+      </header>
+
+      <select class="content__sort" name="film-sort" id="sort-film">
+        <option value="vote_average.desc" selected>Рейтинг по убыв.</option>
+        <option value="vote_average.asc">Рейтинг по возр.</option>
+        <option value="release_date.desc">Дата релиза по убыв.</option>
+        <option value="release_date.asc">Дата релиза по возр.</option>
+      </select>
+      <main class="content">        
+        <section class="content__films">
+        <ul class="content__list">
+        </ul>
+      </section>     
+      </main>    
+    
+    </div>
+    <script src="./app/src/film_gallery.js"></script>
+  </body>
+</html>
