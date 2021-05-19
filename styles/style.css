@@ -20,7 +20,6 @@ body {
 .page-container {
   padding: 40px;
   margin: 0 auto;
-  height: 100%;
 }
 
 .page-header {
@@ -42,9 +41,13 @@ body {
   width: 40px;
 }
 
+.content__sort {
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
 .content {
   padding: 20px 60px;
-  height: 100%;
 }
 
 .content__list {
@@ -108,7 +111,6 @@ body {
   font-size: 1.2rem;
 }
 
-
 .film__date span,
 .film__rating span {
   color: #ebc45b;
@@ -119,11 +121,6 @@ body {
   cursor: default;
   font-size: 1.2rem;
 }
-
-
-
-
-
 
 button {
   background: none;
