@@ -8,13 +8,17 @@ let apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=8a54ea2542532c
 sortFilms.onchange = function() {
   sortFilmsBy = this.value;
   apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=8a54ea2542532ca8dab51c8cb31f897d&language=en-US&sort_by=${sortFilmsBy}&include_adult=false&include_video=false&page=`;
-  showFilms(apiUrl);
+  showFilms(apiUrl);  
 };
+
+let deletedFilms = [];
+let deletedFilmsStorage = [];
 
 
 showFilms(apiUrl);
 function showFilms(url){
-    fetch(url).then(res => res.json())
+    fetch(url)
+    .then(res => res.json())
     .then(function(data){
     filmList.innerHTML = '';
     data.results.forEach(element => {
@@ -22,7 +26,8 @@ function showFilms(url){
         const rating = element.vote_average;
         const releaseDate = element.release_date;
         let filmImgPath;        
-        const filmTitle = element.title;
+        const title = element.title;
+        const id = element.id;
 
         if (element.poster_path === null) {
           filmImgPath = '/img/noimage.jpg';
@@ -31,15 +36,16 @@ function showFilms(url){
         }
 
         el.classList.add('film-item');
+        el.setAttribute('data-id', id);
         el.innerHTML = `
           <div class="film__short-info">
             <span class="film__date">Date: <span>${releaseDate}</span></span>
             <span class="film__rating">Rating: <span>${rating}</span></span>
           </div>
           <a href="#" class="film__link">
-            <img src="${filmImgPath}" class="film__img" alt="The preview poster for film '${filmTitle}'">
+            <img src="${filmImgPath}" class="film__img" alt="The preview poster for film '${title}'">
           </a>          
-          <h2 class="film__title">${filmTitle}</h2>          
+          <h2 class="film__title">${title}</h2>          
         `;
 
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -52,7 +58,7 @@ function showFilms(url){
         
         filmList.appendChild(el);
     }); 
-});
+  });  
 }
 
 const pageNumbers = (total, max, current) => {
@@ -221,6 +227,30 @@ function isAdmin(){
     el.insertBefore(trash, el.firstChild);            
   }
 }
+
+const filmsList = document.querySelector('.content__list');
+
+function filmInteraction(event){
+  if (event.target.classList.contains('film-item')) {
+    window.location.href = "#";
+  }
+
+  if (event.target.classList.contains('trash-btn')) {
+    const filmId = event.target.closest('.film-item').dataset.id;
+    deletedFilms.push(filmId);
+    const deletedFilmsStorage = JSON.parse(localStorage.getItem('deletedFilms'));
+
+    if (!deletedFilmsStorage) {
+      localStorage.setItem('deletedFilms', JSON.stringify(deletedFilms));
+    } else {
+      deletedFilmsStorage.push(filmId);
+      localStorage.setItem('deletedFilms', JSON.stringify(deletedFilmsStorage));
+    }
+  }
+}
+
+filmsList.addEventListener('click', filmInteraction);
+
 
 showCurrentUser();
 
