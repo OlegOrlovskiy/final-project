@@ -28,7 +28,20 @@ body {
   align-items: center;
 }
 
-.sign-in-link {
+.auth-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-name {
+  padding: 6px;
+  margin-right: 20px;
+  color: black;
+}
+
+.sign-in-link,
+.log-out-link {
   display: inline-block;
   padding: 10px 15px;
   border: 2px solid black;

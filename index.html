@@ -16,20 +16,22 @@
         <a href="/index.html" class="main-page-link">
           <img src="./img/home.svg" alt="Home, link to main page">
         </a>
-        <a href="/auth.html" class="sign-in-link">Sign In / Sign Out</a>
+        <div class="auth-container">
+          <a href="auth.html" class="sign-in-link">Sign In / Sign Up</a>        
+        </div>        
       </header>
 
       <select class="content__sort" name="film-sort" id="sort-film">
-        <option value="vote_average.desc" selected>Рейтинг по убыв.</option>
-        <option value="vote_average.asc">Рейтинг по возр.</option>
-        <option value="release_date.desc">Дата релиза по убыв.</option>
-        <option value="release_date.asc">Дата релиза по возр.</option>
+        <option value="vote_average.desc" selected>Rating &darr;</option>
+        <option value="vote_average.asc">Rating &uarr;</option>
+        <option value="release_date.desc">Release date &darr;</option>
+        <option value="release_date.asc">Release date &uarr;</option>
       </select>
       <main class="content">        
         <section class="content__films">
-        <ul class="content__list">
-        </ul>
-      </section>     
+          <ul class="content__list">
+          </ul>
+        </section>     
       </main>  
     </div>
     <script src="./app/src/film_gallery.js"></script>

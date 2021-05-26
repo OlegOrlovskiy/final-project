@@ -1,17 +1,17 @@
 const currentUser = {};
-
+  
 const emailSign = document.querySelector('#emailSign');
 const passwordSign = document.querySelector('#passwordSign');
-
 const emailSignError = document.querySelector('#emailSignError');
 const passwordSIgnError = document.querySelector('#passwordSignError');
+const SignInBtn = document.querySelector('#signInBtn');
 
-emailSign.addEventListener('blur', emailVerify, true);
-passwordSign.addEventListener('blur', passwordVerify, true);
+emailSign.addEventListener('blur', emailSignVerify, true);
+passwordSign.addEventListener('blur', passwordSignVerify, true);
+signInBtn.addEventListener('click', ValidateSignIn);
 
-
-function Validate() {
-  const usersList = JSON.parse(localStorage.getItem('users'));
+function ValidateSignIn() {
+  let usersList = JSON.parse(localStorage.getItem('users'));
   const isRightEmail = element => element.email === emailSign.value;
 
   fetch('./app/src/dummy_data/users.json')
@@ -20,6 +20,10 @@ function Validate() {
       const ref = localStorage.getItem('users');
       if (!ref){
         localStorage.setItem('users', JSON.stringify(data));
+        usersList = JSON.parse(localStorage.getItem('users'));
+        console.log(usersList);
+      } else {
+        usersList = JSON.parse(localStorage.getItem('users'));
       }        
     }); 
 
@@ -49,40 +53,34 @@ function Validate() {
 
   usersList.forEach(element => {
     if (element.password === passwordSign.value && element.email === emailSign.value) {
-      currentUser = element;
+      for (let key in element){
+        currentUser[key] = element[key];
+      }
+      localStorage.setItem('currentUser', JSON.stringify(currentUser));
+      window.location.href = 'index.html';
     } else {
       passwordSign.style.borderBottom = "1px solid red";
       document.querySelector('label[for=passwordSign]').style.color = "red";
       passwordSignError.textContent = "Incorrect password. Try again";
       passwordSign.focus();
     }
-    return currentUser
-  }) 
+  });
 }
 
-function addUser(newUser) {
-  const ref = localStorage.getItem('users');
-  const usersList = JSON.parse(ref);
-  usersList.push(newUser);
-  
-  return usersList
-}
-
-
-function passwordVerify() {
+function passwordSignVerify() {
   if (passwordSign.value != "") {
-  	passwordSign.style.borderBottom = "1px solid #ccc";
-  	document.querySelector('label[for=passwordSign]').style.color = "#aaa";
-  	passwordSignError.innerHTML = "";
-  	return true;
+    passwordSign.style.borderBottom = "1px solid #ccc";
+    document.querySelector('label[for=passwordSign]').style.color = "#aaa";
+    passwordSignError.innerHTML = "";
+    return true;
   }
 }
 
-function emailVerify() {
+function emailSignVerify() {
   if (emailSign.value != "") {
-  	emailSign.style.borderBottom = "1px solid #ccc";
-  	document.querySelector('label[for=emailSign]').style.color = "#aaa";
-  	emailSignError.innerHTML = "";
-  	return true;
+    emailSign.style.borderBottom = "1px solid #ccc";
+    document.querySelector('label[for=emailSign]').style.color = "#aaa";
+    emailSignError.innerHTML = "";
+    return true;
   }
 }

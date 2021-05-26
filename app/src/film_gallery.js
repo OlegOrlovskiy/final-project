@@ -166,3 +166,62 @@ function PaginationButton(totalPages, maxPagesVisible = 10, currentPage = 1) {
 const paginationButtons = new PaginationButton(10, 5);
 
 paginationButtons.render();
+
+const currentUserArea = document.querySelector('.auth-container');
+
+function showCurrentUser() {
+  const ref = localStorage.getItem('currentUser');
+  
+  if (ref) {
+    const userNameLogNew = document.createElement("span");        
+    const signIn = document.querySelector('.sign-in-link');
+    const logOutNew = document.createElement("a");
+    const currentUser = JSON.parse(ref);
+    
+    logOutNew.classList.add('log-out-link');
+    logOutNew.href = "index.html";
+    logOutNew.textContent = "Log Out";
+    userNameLogNew.classList.add('user-name');    
+    userNameLogNew.textContent = currentUser.name;
+    
+    currentUserArea.removeChild(signIn);
+    currentUserArea.appendChild(userNameLogNew);
+    currentUserArea.appendChild(logOutNew);
+    
+    const logOut = document.querySelector('.log-out-link');
+
+    logOut.addEventListener('click', () => {
+      const signIn = document.createElement("a");
+      const userNameLog = document.querySelector('.user-name');
+      localStorage.removeItem('currentUser');
+
+      signIn.classList.add('sign-in-link');
+      signIn.href = "auth.html";
+      signIn.textContent = "Sign In / Sign Up";
+
+      currentUserArea.removeChild(logOut);
+      currentUserArea.removeChild(userNameLog);      
+      currentUserArea.appendChild(signIn);
+    });
+      
+  // } else {
+  // 	const signIn = document.createElement("a");
+  //   const logOut = document.querySelector('.log-out-link');
+    
+  //   signIn.classList.add('sign-in-link');
+  //   signIn.href = "auth.html";
+  //   signIn.textContent = "Sign In / Sign Up";
+    
+  // 	currentUserArea.removeChild(logOut);
+  //   currentUserArea.appendChild(signIn);
+  //   userNameLog.classList.remove('active-user');
+  //   userNameLog.textContent = "";
+  //   signIn.textContent = "Sign In / Sign Up";
+  //   signIn.href = "auth.html";
+  } 
+}
+
+
+
+showCurrentUser();
+

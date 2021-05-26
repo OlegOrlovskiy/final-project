@@ -15,14 +15,13 @@
       <header class="page-header">
         <a href="/index.html" class="main-page-link">
           <img src="./img/home.svg" alt="Home, link to main page">
-        </a>
-        <a href="/auth.html" class="sign-in-link">Sign In / Sign Out</a>
+        </a>        
       </header>
       
       <main class="content">
         <div id="regFormWrapper" class="form__wrapper">
           <h1 class="regTitle">Registration</h1>
-          <form method="POST" action="#" onsubmit="return Validate()" name="regForm">
+          <form name="regForm">
             <div class="row">              
               <input id="userName" type="text" name="username" class="textInput" required>
               <label for="userName">Name</label>
@@ -48,7 +47,7 @@
               <div id="emailError" class="errors"></div>
             </div>
             <div class="btns-container">
-              <input type="submit" name="register" value="Register" class="btn regBtn">
+              <input type="button" id="signUpBtn" name="register" value="Register" class="btn regBtn">
               <input type="reset" name="reset" value="Reset" class="btn resetBtn">
             </div>
           </form>

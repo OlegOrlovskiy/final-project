@@ -5,6 +5,7 @@ const userSurname = document.querySelector('#userSurname');
 const email = document.querySelector('#email');
 const password = document.querySelector('#password');
 const passwordConfirm = document.querySelector('#passwordConfirm');
+const signUpBtn = document.querySelector('#signUpBtn');
 
 
 const nameError = document.querySelector('#nameError');
@@ -17,9 +18,9 @@ userName.addEventListener('blur', nameVerify, true);
 userSurname.addEventListener('blur', surnameVerify, true);
 email.addEventListener('blur', emailVerify, true);
 password.addEventListener('blur', passwordVerify, true);
+signUpBtn.addEventListener('click', ValidateSignUp);
 
-
-function Validate() {
+function ValidateSignUp(){
   if (userName.value == "") {
     userName.style.borderBottom = "1px solid red";
     document.querySelector('label[for=userName]').style.color = "red";
@@ -114,7 +115,8 @@ function Validate() {
   user.email = email.value; 
   user.type = "user";
  
-  localStorage.setItem('users', JSON.stringify(addUser(user)));  
+  localStorage.setItem('users', JSON.stringify(addUser(user)));
+  window.location.href = 'auth.html';
 }
 
 function addUser(newUser) {
