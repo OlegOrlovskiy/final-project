@@ -41,14 +41,19 @@ function showFilms(url){
           </a>          
           <h2 class="film__title">${filmTitle}</h2>          
         `;
+
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (currentUser.type === "admin"){
+          const trash = document.createElement("button");
+          trash.classList.add('trash-btn');
+          
+          el.insertBefore(trash, el.firstChild);            
+        }
         
         filmList.appendChild(el);
     }); 
 });
 }
-
-
-
 
 const pageNumbers = (total, max, current) => {
   const half = Math.floor(max / 2);
@@ -202,26 +207,20 @@ function showCurrentUser() {
       currentUserArea.removeChild(logOut);
       currentUserArea.removeChild(userNameLog);      
       currentUserArea.appendChild(signIn);
-    });
-      
-  // } else {
-  // 	const signIn = document.createElement("a");
-  //   const logOut = document.querySelector('.log-out-link');
-    
-  //   signIn.classList.add('sign-in-link');
-  //   signIn.href = "auth.html";
-  //   signIn.textContent = "Sign In / Sign Up";
-    
-  // 	currentUserArea.removeChild(logOut);
-  //   currentUserArea.appendChild(signIn);
-  //   userNameLog.classList.remove('active-user');
-  //   userNameLog.textContent = "";
-  //   signIn.textContent = "Sign In / Sign Up";
-  //   signIn.href = "auth.html";
+    });        
   } 
 }
 
-
+function isAdmin(){
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  if (currentUser.type === "admin"){
+    const trash = document.createElement("input");
+    trash.classList.add('trash-btn');
+    trash.setAttribute('type', 'button');
+    
+    el.insertBefore(trash, el.firstChild);            
+  }
+}
 
 showCurrentUser();
 
