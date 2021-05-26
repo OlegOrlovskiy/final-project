@@ -49,11 +49,13 @@ function showFilms(url){
         `;
 
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        if (currentUser.type === "admin"){
-          const trash = document.createElement("button");
-          trash.classList.add('trash-btn');
-          
-          el.insertBefore(trash, el.firstChild);            
+        if (currentUser) {
+          if (currentUser.type === "admin"){
+            const trash = document.createElement("button");
+            trash.classList.add('trash-btn');
+            
+            el.insertBefore(trash, el.firstChild);            
+          }
         }
         
         filmList.appendChild(el);
