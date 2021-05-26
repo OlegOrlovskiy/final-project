@@ -4,4 +4,4 @@
 
 ## Oleg Orlovskiy - Senla student
 
-### netlify webpage [https://film-gallery-senla.netlify.app/index.html](https://film-gallery-senla.netlify.app/index.html)
+### netlify webpage [https://gallery-after-deadline.netlify.app/](https://gallery-after-deadline.netlify.app/)
